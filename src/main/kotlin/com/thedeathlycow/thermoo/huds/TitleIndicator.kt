@@ -7,10 +7,10 @@ import net.minecraft.server.MinecraftServer
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.text.Style
 import net.minecraft.text.Text
-import net.minecraft.text.TextColor
 import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
 import kotlin.math.abs
+import kotlin.math.round
 
 object TitleIndicator : ServerTickEvents.EndTick {
 
@@ -23,7 +23,7 @@ object TitleIndicator : ServerTickEvents.EndTick {
 
     override fun onEndTick(server: MinecraftServer) {
         val config = ThermooHUDs.config.indicatorConfig
-        if (!config.enabled) {
+        if (!config.enabled || server.ticks % config.updateInterval != 0) {
             return
         }
 
@@ -40,16 +40,16 @@ object TitleIndicator : ServerTickEvents.EndTick {
         }
 
         val temperatureChar = if (temperature > 0) config.warmTemperatureChar else config.coldTemperatureChar
-        val numPoints: Int = MathHelper.floor(abs(player.`thermoo$getTemperatureScale`() * config.maxPoints))
+        val numPoints: Int = round(abs(player.`thermoo$getTemperatureScale`() * config.maxPoints)).toInt()
 
         val barString = temperatureChar.repeat(numPoints)
 
-        val title = OverlayMessageS2CPacket(
+        val titleS2CPacket = config.titleType.createPacket(
             Text.literal(barString)
                 .setStyle(if (temperature > 0) WARM_STYLE else COLD_STYLE)
         )
 
-        player.networkHandler.sendPacket(title)
+        player.networkHandler.sendPacket(titleS2CPacket)
     }
 
 

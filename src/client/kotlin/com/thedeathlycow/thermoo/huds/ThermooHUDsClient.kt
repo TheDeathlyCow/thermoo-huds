@@ -7,7 +7,7 @@ object ThermooHUDsClient : ClientModInitializer {
 
 	override fun onInitializeClient() {
 		HudRenderCallback.EVENT.register { drawContext, tickCounter ->
-			ThermooHUDs.LOGGER.info("render hud")
+//			ThermooHUDs.LOGGER.info("render hud")
 		}
 	}
 
