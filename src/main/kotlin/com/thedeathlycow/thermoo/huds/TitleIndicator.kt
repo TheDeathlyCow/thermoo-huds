@@ -12,11 +12,12 @@ import kotlin.math.round
 
 object TitleIndicator : ServerTickEvents.EndTick {
 
-    private val WARM_STYLE: Style = Style.EMPTY
-        .withColor(Formatting.GOLD)
-
-    private val COLD_STYLE: Style = Style.EMPTY
-        .withColor(Formatting.AQUA)
+    private val DEFAULT_STYLE = IndicatorStyle(
+        coldStyle = Style.EMPTY
+            .withColor(Formatting.AQUA),
+        warmStyle = Style.EMPTY
+            .withColor(Formatting.GOLD)
+    )
 
 
     override fun onEndTick(server: MinecraftServer) {
@@ -25,12 +26,23 @@ object TitleIndicator : ServerTickEvents.EndTick {
             return
         }
 
+        val style = IndicatorStyle(
+            coldStyle = Style.EMPTY
+                .withColor(config.coldIndicatorColor ?: 0),
+            warmStyle = Style.EMPTY
+                .withColor(config.warmIndicatorColor ?: 0)
+        )
+
         server.playerManager.playerList.forEach { player ->
-            tickPlayerIndicator(player, config)
+            tickPlayerIndicator(player, config, style)
         }
     }
 
-    private fun tickPlayerIndicator(player: ServerPlayerEntity, config: TitleIndicatorConfig) {
+    private fun tickPlayerIndicator(
+        player: ServerPlayerEntity,
+        config: TitleIndicatorConfig,
+        style: IndicatorStyle
+    ) {
         val temperature = player.`thermoo$getTemperature`()
 
         if (temperature == 0) {
@@ -44,11 +56,16 @@ object TitleIndicator : ServerTickEvents.EndTick {
 
         val titleS2CPacket = config.titleType.createPacket(
             Text.literal(barString)
-                .setStyle(if (temperature > 0) WARM_STYLE else COLD_STYLE)
+                .setStyle(if (temperature > 0) style.warmStyle else style.coldStyle)
         )
 
         player.networkHandler.sendPacket(titleS2CPacket)
     }
+
+    private data class IndicatorStyle(
+        val coldStyle: Style,
+        val warmStyle: Style
+    )
 
 
 }

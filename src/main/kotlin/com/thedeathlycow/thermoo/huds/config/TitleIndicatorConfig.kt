@@ -10,6 +10,7 @@ import net.minecraft.network.packet.s2c.play.OverlayMessageS2CPacket
 import net.minecraft.network.packet.s2c.play.SubtitleS2CPacket
 import net.minecraft.network.packet.s2c.play.TitleS2CPacket
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 import kotlin.math.max
 
 @Config(name = "${ThermooHUDs.MODID}.title_indicator")
@@ -27,6 +28,12 @@ class TitleIndicatorConfig : ConfigData {
     var maxPoints: Int = 10
 
     var updateInterval: Int = 20
+
+    @ConfigEntry.ColorPicker
+    val warmIndicatorColor: Int? = Formatting.GOLD.colorValue
+
+    @ConfigEntry.ColorPicker
+    val coldIndicatorColor: Int? = Formatting.AQUA.colorValue
 
     override fun validatePostLoad() {
         super.validatePostLoad()

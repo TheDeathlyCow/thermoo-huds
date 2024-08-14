@@ -9,5 +9,7 @@
     "text.autoconfig.thermoo-huds.option.serverSideTitles.warmTemperatureChar": "Warm Temperature Indicator Character",
     "text.autoconfig.thermoo-huds.option.serverSideTitles.coldTemperatureChar": "Cold Temperature Indicator Character",
     "text.autoconfig.thermoo-huds.option.serverSideTitles.maxPoints": "Maximum Display Points",
-    "text.autoconfig.thermoo-huds.option.serverSideTitles.updateInterval": "Ticks per update"
+    "text.autoconfig.thermoo-huds.option.serverSideTitles.updateInterval": "Ticks per update",
+    "text.autoconfig.thermoo-huds.option.serverSideTitles.warmIndicatorColor": "Warm Indicator Color",
+    "text.autoconfig.thermoo-huds.option.serverSideTitles.coldIndicatorColor": "Cold Indicator Color"
 }
