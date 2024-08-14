@@ -5,6 +5,7 @@ import me.shedaniel.autoconfig.AutoConfig
 import me.shedaniel.autoconfig.ConfigHolder
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -22,5 +23,7 @@ object ThermooHUDs : ModInitializer {
 	override fun onInitialize() {
 		AutoConfig.register(ThermooHudsConfig::class.java, ::GsonConfigSerializer)
 		_config = AutoConfig.getConfigHolder(ThermooHudsConfig::class.java)
+
+		ServerTickEvents.END_SERVER_TICK.register(TitleIndicator)
 	}
 }

@@ -6,7 +6,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer
 
 @Config(name = ThermooHUDs.MODID)
-class ThermooHudsConfig: PartitioningSerializer.GlobalData() {
+class ThermooHudsConfig : PartitioningSerializer.GlobalData() {
 
 
     @ConfigEntry.Gui.CollapsibleObject
