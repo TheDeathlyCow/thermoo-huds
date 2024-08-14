@@ -1,17 +1,26 @@
 package com.thedeathlycow.thermoo.huds
 
+import com.thedeathlycow.thermoo.huds.config.ThermooHudsConfig
+import me.shedaniel.autoconfig.AutoConfig
+import me.shedaniel.autoconfig.ConfigHolder
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer
 import net.fabricmc.api.ModInitializer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 object ThermooHUDs : ModInitializer {
 
-    val LOGGER: Logger = LoggerFactory.getLogger("thermoo-huds")
+	const val MODID = "thermoo-huds"
+
+    val LOGGER: Logger = LoggerFactory.getLogger(MODID)
+
+	private lateinit var _config: ConfigHolder<ThermooHudsConfig>
+
+	val config: ThermooHudsConfig
+		get() = _config.config
 
 	override fun onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-		LOGGER.info("Hello Fabric world!")
+		AutoConfig.register(ThermooHudsConfig::class.java, ::GsonConfigSerializer)
+		_config = AutoConfig.getConfigHolder(ThermooHudsConfig::class.java)
 	}
 }
