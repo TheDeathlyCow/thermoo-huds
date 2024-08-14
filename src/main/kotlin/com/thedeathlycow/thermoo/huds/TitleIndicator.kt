@@ -45,7 +45,7 @@ object TitleIndicator : ServerTickEvents.EndTick {
     ) {
         val temperature = player.`thermoo$getTemperature`()
 
-        if (temperature == 0) {
+        if (temperature == 0 || player.isSpectator) {
             return
         }
 
