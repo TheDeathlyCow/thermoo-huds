@@ -26,6 +26,12 @@
 				"value": "com.thedeathlycow.thermoo.huds.ThermooHUDsClient",
 				"adapter": "kotlin"
 			}
+		],
+		"modmenu": [
+			{
+				"value": "com.thedeathlycow.thermoo.huds.ThermooHUDsModMenu",
+				"adapter": "kotlin"
+			}
 		]
 	},
 	"depends": {
