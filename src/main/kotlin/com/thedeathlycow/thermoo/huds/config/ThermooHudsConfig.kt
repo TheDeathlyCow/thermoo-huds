@@ -10,6 +10,7 @@ class ThermooHudsConfig : PartitioningSerializer.GlobalData() {
 
 
     @ConfigEntry.Gui.CollapsibleObject
-    val indicatorConfig: TitleIndicatorConfig = TitleIndicatorConfig()
+    @ConfigEntry.Gui.Tooltip
+    val serverSideTitles: TitleIndicatorConfig = TitleIndicatorConfig()
 
 }

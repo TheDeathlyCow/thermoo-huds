@@ -2,13 +2,11 @@ package com.thedeathlycow.thermoo.huds
 
 import com.thedeathlycow.thermoo.huds.config.TitleIndicatorConfig
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
-import net.minecraft.network.packet.s2c.play.OverlayMessageS2CPacket
 import net.minecraft.server.MinecraftServer
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.text.Style
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
-import net.minecraft.util.math.MathHelper
 import kotlin.math.abs
 import kotlin.math.round
 
@@ -22,7 +20,7 @@ object TitleIndicator : ServerTickEvents.EndTick {
 
 
     override fun onEndTick(server: MinecraftServer) {
-        val config = ThermooHUDs.config.indicatorConfig
+        val config = ThermooHUDs.config.serverSideTitles
         if (!config.enabled || server.ticks % config.updateInterval != 0) {
             return
         }

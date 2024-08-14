@@ -3,6 +3,7 @@ package com.thedeathlycow.thermoo.huds.config
 import com.thedeathlycow.thermoo.huds.ThermooHUDs
 import me.shedaniel.autoconfig.ConfigData
 import me.shedaniel.autoconfig.annotation.Config
+import me.shedaniel.autoconfig.annotation.ConfigEntry
 import net.minecraft.network.listener.ClientPlayPacketListener
 import net.minecraft.network.packet.Packet
 import net.minecraft.network.packet.s2c.play.OverlayMessageS2CPacket
@@ -16,6 +17,7 @@ class TitleIndicatorConfig : ConfigData {
 
     val enabled: Boolean = false
 
+    @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     val titleType: TitleType = TitleType.ACTION_BAR
 
     val warmTemperatureChar: String = "\uD83D\uDD25"

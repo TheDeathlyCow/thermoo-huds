@@ -1,0 +1,13 @@
+{
+    "text.autoconfig.thermoo-huds.title": "Thermoo HUDs",
+    
+    "text.autoconfig.thermoo-huds.option.serverSideTitles": "Server-Side Titles",
+    "text.autoconfig.thermoo-huds.option.serverSideTitles.@Tooltip": "Similar to the /title command, use this for server-side temperature indicators",
+    
+    "text.autoconfig.thermoo-huds.option.serverSideTitles.enabled": "Enabled",
+    "text.autoconfig.thermoo-huds.option.serverSideTitles.titleType": "Title Type",
+    "text.autoconfig.thermoo-huds.option.serverSideTitles.warmTemperatureChar": "Warm Temperature Indicator Character",
+    "text.autoconfig.thermoo-huds.option.serverSideTitles.coldTemperatureChar": "Cold Temperature Indicator Character",
+    "text.autoconfig.thermoo-huds.option.serverSideTitles.maxPoints": "Maximum Display Points",
+    "text.autoconfig.thermoo-huds.option.serverSideTitles.updateInterval": "Ticks per update"
+}
