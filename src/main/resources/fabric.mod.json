@@ -34,7 +34,8 @@
 		"java": ">=21",
 		"fabric-api": "*",
 		"fabric-language-kotlin": "*",
-		"thermoo": ">=4.2"
+		"thermoo": ">=4.2",
+		"cloth-config": ">=15.0.130"
 	},
 	"suggests": {
 		"another-mod": "*"
