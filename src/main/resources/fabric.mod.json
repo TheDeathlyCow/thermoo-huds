@@ -3,15 +3,15 @@
 	"id": "thermoo-huds",
 	"version": "${version}",
 	"name": "Thermoo HUDs",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Customizable alternative temperature and wetness indicators for Frostiful and Scorchful ",
 	"authors": [
-		"Me!"
+		"TheDeathlyCow"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "LGPLv3",
 	"icon": "assets/thermoo-huds/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -28,13 +28,6 @@
 			}
 		]
 	},
-	"mixins": [
-		"thermoo-huds.mixins.json",
-		{
-			"config": "thermoo-huds.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.21.1",
